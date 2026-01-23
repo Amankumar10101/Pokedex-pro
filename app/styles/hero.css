@@ -1,0 +1,51 @@
+.title-strip {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+.title-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background: transparent;
+  z-index: 100; */
+}
+
+.title-overlay h1 {
+  font-size: 3.2rem;
+  color: #38bdf8;
+}
+
+.title-overlay p {
+  font-size: 1.2rem;
+  color: #e0f2fe;
+}
+
+
+/* -------- POKEMON BANNER -------- */
+
+.pokemon-banner {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  background: #020617; /* fallback color */
+}
+
+.pokemon-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
