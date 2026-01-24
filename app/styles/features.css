@@ -1,0 +1,39 @@
+.features {
+  width: 100%;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  background: #fff;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.feature-row img {
+  width: 420px;
+  max-width: 100%;
+}
+
+.feature-text {
+  max-width: 500px;
+}
+
+.feature-text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.feature-text p {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
