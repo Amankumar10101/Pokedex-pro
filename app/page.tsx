@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import HowItWorks from "@/components/HowItWorks";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
@@ -8,7 +8,7 @@ import { FaUsers, FaChartLine, FaShieldAlt } from "react-icons/fa";
 export default function Home() {
   return (
     <main className="bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />    
 

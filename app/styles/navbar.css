@@ -1,73 +1,49 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
 .navbar {
-  width: 100%;
-  background: linear-gradient(90deg, #0b1f3a, #123b73);
-  color: white;
-  height: 80px;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 10px;
+  height: 70px;
+  background: linear-gradient(180deg, #0b1f3a, #0f3b6f);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 60px;
+  color: white;
 }
 
-/* Logo */
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.logo span {
-  color: #2dd4bf;
-}
-
-/* Menu */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 30px;
+  list-style: none;
 }
 
-.nav-links li {
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
+.nav-links a {
+  color: #e0eaff;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.nav-links li:hover {
-  color: #2dd4bf;
+.auth-buttons {
+  display: flex;
+  gap: 16px;
 }
 
-/* Button */
-.sign-in {
-  background: transparent;
-  color: #2dd4bf;
-  border: 2px solid #2dd4bf;
+.login-btn {
+  padding: 8px 20px;
+  border: 2px solid #2de2c4;
+  border-radius: 20px;
+  color: #2de2c4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-btn {
   padding: 8px 20px;
   border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.sign-in:hover {
-  background: #2dd4bf;
-  color: #000;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
+  background: #2de2c4;
+  color: #002b3f;
+  text-decoration: none;
+  font-weight: 600;
 }

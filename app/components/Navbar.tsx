@@ -1,26 +1,31 @@
-import "./../styles/navbar.css";
+import Link from "next/link";
+import "@/styles/navbar.css";
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="nav-container">
+      {/* Logo */}
+      <div className="logo">
+        PokéDex Pro
+      </div>
 
-        <div className="logo">
-          PokéDex<span>  Pro</span>
-        </div>
+      {/* Menu */}
+      <ul className="nav-links">
+        <li><Link href="#">Tour</Link></li>
+        <li><Link href="#">Seasons</Link></li>
+        <li><Link href="#">Events</Link></li>
+        <li><Link href="#">Community</Link></li>
+      </ul>
 
-        <ul className="nav-links">
-          <li>Tour</li>
-          
-          <li>Seasons</li>
-          <li>Events</li>
-          <li>Community</li>
-          
-         
-        </ul>
+      {/* Auth Buttons */}
+      <div className="auth-buttons">
+        <Link href="/login" className="login-btn">
+          Log In
+        </Link>
 
-        <button className="sign-in">Log In</button>
-        <button className="sign-in">Sign Up</button>
+        <Link href="/signup" className="signup-btn">
+          Sign Up
+        </Link>
       </div>
     </nav>
   );
