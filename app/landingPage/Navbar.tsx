@@ -19,11 +19,11 @@ export default function Navbar() {
 
       {/* Auth Buttons */}
       <div className="auth-buttons">
-        <Link href="/login" className="login-btn">
+        <Link href="/auth/login" className="login-btn">
           Log In
         </Link>
 
-        <Link href="/signup" className="signup-btn">
+        <Link href="/auth/signup" className="signup-btn">
           Sign Up
         </Link>
       </div>

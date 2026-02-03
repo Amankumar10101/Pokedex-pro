@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.signup-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #eef2ff, #dbeafe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main card */
+.signup-card {
+  width: 1150px;
+  height: 680px;
+  background: white;
+  border-radius: 28px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* LEFT SIDE */
+.signup-left {
+  width: 50%;
+  background: linear-gradient(135deg, #2b0a3d, #4c1d95);
+  color: white;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-left h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.signup-left p {
+  opacity: 0.8;
+  font-size: 15px;
+  max-width: 320px;
+}
+
+/* RIGHT SIDE */
+.signup-right {
+  width: 50%;
+  padding: 70px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-right h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.subtext {
+  color: #666;
+  margin-bottom: 32px;
+}
+
+/* Social Buttons */
+.social {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  background: white;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.social:hover {
+  background: #f9fafb;
+}
+
+.social img {
+  width: 20px;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 26px 0;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Inputs */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background: #fafafa;
+}
+
+.input-group img {
+  width: 18px;
+  margin-right: 12px;
+  opacity: 0.6;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 15px;
+}
+
+/* Button */
+.signup-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ff7a18, #ff9f4a);
+  border: none;
+  border-radius: 16px;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 122, 24, 0.35);
+}
+
+/* Bottom text */
+.register {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.register a {
+  color: #ff7a18;
+  font-weight: 600;
+  text-decoration: none;
+}
+

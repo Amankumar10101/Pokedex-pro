@@ -3,6 +3,8 @@ import CTASection from "@/landingPage/CTASection";
 import Hero from "@/landingPage/Hero";
 import Features from "@/landingPage/Features";
 import { FaUsers, FaChartLine, FaShieldAlt } from "react-icons/fa";
+import Link from "next/link";
+
 
 export default function Home() {
   return (
