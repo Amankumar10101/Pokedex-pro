@@ -1,13 +1,47 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import "./signup.css";
-
-// await fetch("http://localhost:5000/api/auth/signup", {
-//   method: "POST",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify({ name, email, password })
-// });
 
 
 export default function SignupPage() {
+
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSignup = async () => {
+  if (!email || !password || !name) {
+    alert("All fields required");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  setLoading(true);
+
+  const res = await fetch("/api/auth/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, password })
+  });
+
+  const data = await res.json();
+  setLoading(false);
+
+  if (data.success) {
+  router.push("/dashboard");
+  } else {
+    alert(data.error || "Signup failed");
+  }
+};
+
   return (
     <div className="signup-page">
       <div className="signup-card">
@@ -42,25 +76,48 @@ export default function SignupPage() {
 
           <div className="input-group">
             <img src="/icons8-username-48.png" />
-            <input type="text" placeholder="Full Name" />
+            <input
+             type="text"
+             placeholder="Full Name"
+             value={name}
+             onChange={(e) => setName(e.target.value)} 
+             />
           </div>
 
           <div className="input-group">
             <img src="/icons8-email-48.png" />
-            <input type="email" placeholder="Email" />
+            <input
+             type="email" 
+             placeholder="Email" 
+             value={email}
+             onChange={(e) => setEmail(e.target.value)} 
+             />
           </div>
 
           <div className="input-group">
             <img src="/icons8-password-48.png" />
-            <input type="password" placeholder="Password" />
+            <input 
+            type="password" 
+            placeholder="Password" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
           <div className="input-group">
             <img src="/icons8-password-48.png" />
-            <input type="password" placeholder="Confirm Password" />
+            <input 
+            type="password" 
+            placeholder="Confirm Password" 
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </div>
 
-          <button className="signup-btn">Create Account</button>
+          <button className="signup-btn" onClick={handleSignup}>
+            {loading ? "Creating..." : "Create Account"}
+          </button>
+
 
           <p className="register">
             Already have an account? <a href="/auth/login">Login</a>

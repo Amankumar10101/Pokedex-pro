@@ -40,6 +40,28 @@
   opacity: 0.85;
 }
 
+/* LEFT SIDE */
+.signup-left {
+  width: 50%;
+  background: linear-gradient(135deg, #2b0a3d, #4c1d95);
+  color: white;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-left h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.signup-left p {
+  opacity: 0.8;
+  font-size: 15px;
+  max-width: 320px;
+}
+
 /* Phone animation */
 .phone-wrapper {
   position: relative;
