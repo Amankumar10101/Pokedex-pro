@@ -8,7 +8,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const hideNavbar =
     pathname.startsWith("/auth/login") ||
-    pathname.startsWith("/auth/signup");
+    pathname.startsWith("/auth/signup") || 
+    pathname.startsWith("/dashboard");
 
   return (
     <html lang="en">

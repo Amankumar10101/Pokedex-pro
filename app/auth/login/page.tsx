@@ -13,22 +13,25 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    setLoading(true);
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+  setLoading(true);
 
-    const data = await res.json();
-    setLoading(false);
+  const res = await fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+    credentials: "include",   // 🔥 THIS IS REQUIRED
+  });
 
-    if (data.success) {
-  router.push("/dashboard");
-    } else {
-      alert(data.error);
-    }
-  };
+  const data = await res.json();
+  setLoading(false);
+
+  if (res.ok) {
+    router.push("/dashboard");
+  } else {
+    alert(data.error);
+  }
+};
+
 
   return (
     <div className="login-page">

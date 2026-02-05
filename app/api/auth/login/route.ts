@@ -6,7 +6,6 @@ import { connectDB } from "@/lib/db";
 
 export async function POST(req: Request) {
   await connectDB();
-
   const { email, password } = await req.json();
 
   const user = await User.findOne({ email });
@@ -17,16 +16,21 @@ export async function POST(req: Request) {
   if (!match)
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
 
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET!, {
-    expiresIn: "7d",
+  const token = jwt.sign(
+    { id: user._id },
+    process.env.JWT_SECRET!,
+    { expiresIn: "7d" }
+  );
+
+  const res = NextResponse.json({ success: true });
+
+  res.cookies.set("token", token, {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: false,     // true only in HTTPS
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
   });
 
-  const response = NextResponse.json({ success: true });
-response.cookies.set("token", token, {
-  httpOnly: true,
-  secure: false,
-  path: "/",
-});
-return response;
-
+  return res;
 }
