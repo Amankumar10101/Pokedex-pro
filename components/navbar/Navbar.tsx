@@ -1,75 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Bell, User, LogOut, Settings } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Bell } from "lucide-react";
+import "./navbar.css";
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const hasToken = document.cookie.includes("token=");
-    setIsLoggedIn(hasToken);
-  }, []);
-
-  const logoLink = isLoggedIn ? "/dashboard" : "/";
-
-  const logout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/auth/login");
-  };
 
   return (
     <nav className="navbar">
-      {/* LEFT */}
-      <Link href={logoLink} className="logo">
-        PokéDex Pro
-      </Link>
+      {/* Left */}
+      <div className="nav-left">
+        <Link href="/dashboard" className="logo">
+          PokéDex <span>Pro</span>
+        </Link>
+      </div>
 
-      {/* CENTER */}
-      {isLoggedIn && (
-        <div className="nav-links">
-          <Link href="/dashboard/Pokemon">Pokémon</Link>
-          <Link href="/dashboard/battles">Battles</Link>
-          <Link href="/dashboard/teams">Teams</Link>
-          <Link href="/dashboard/raids">Raids</Link>
-          <Link href="/dashboard/analytics">Analytics</Link>
+      {/* Center */}
+      <div className="nav-center">
+        <Link href="/pokemon">Pokémon</Link>
+        <Link href="/teams">Teams</Link>
+        <Link href="/raids">Raids</Link>
+        <Link href="/battles">Battles</Link>
+        <Link href="/analytics">Analytics</Link>
+      </div>
+
+      {/* Right */}
+      <div className="nav-right">
+        <Bell className="bell" />
+
+        <div className="user-box" onClick={() => setOpen(!open)}>
+          <img src="/icons8-profile-100.png" className="avatar" />
+
+          {open && (
+            <div className="dropdown">
+              <Link href="/profile">Profile</Link>
+              <Link href="/settings">Settings</Link>
+              <hr />
+              <Link href="/logout">Logout</Link>
+            </div>
+          )}
         </div>
-      )}
-
-      {/* RIGHT */}
-      {isLoggedIn && (
-        <div className="nav-right">
-          {/* Bell */}
-          <button className="icon-btn">
-            <Bell size={20} />
-          </button>
-
-          {/* User */}
-          <div className="user-menu">
-            <button className="avatar" onClick={() => setOpen(!open)}>
-              <User size={18} />
-            </button>
-
-            {open && (
-              <div className="dropdown">
-                <Link href="/dashboard/profile">
-                  <User size={16} /> Profile
-                </Link>
-                <Link href="/dashboard/settings">
-                  <Settings size={16} /> Settings
-                </Link>
-                <button onClick={logout}>
-                  <LogOut size={16} /> Logout
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      </div>
     </nav>
   );
 }

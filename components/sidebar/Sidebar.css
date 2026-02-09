@@ -1,0 +1,44 @@
+.sidebar {
+  width: 260px;
+  background: #020617;
+  color: white;
+  padding: 20px;
+  border-right: 1px solid #0f172a;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section h4 {
+  margin-bottom: 8px;
+  color: #3b82f6;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  background: #0f172a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3b82f6;
+}
+
+.battle {
+  background: #dc2626;
+}

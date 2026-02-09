@@ -1,0 +1,6 @@
+.dashboard-page {
+  width: 100vw;
+  min-height: calc(100vh - 70px);
+  background: #f8fafc;
+  padding: 40px;
+}
